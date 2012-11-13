@@ -22,8 +22,8 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.5'
-  gem 'coffee-rails', '~> 3.2.2'
+	gem 'sass-rails',   '~> 3.2.5'
+	gem 'coffee-rails', '~> 3.2.2'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -43,6 +43,8 @@ group :test do
 	gem 'rb-fsevent', '0.9.1', :require => false
 	gem 'growl', '1.0.3'
 	gem 'factory_girl_rails', '4.1.0'
+	gem 'cucumber-rails', '1.2.1', :require => false
+	gem 'database_cleaner', '0.7.0'
 end
 
 # To use ActiveModel has_secure_password
