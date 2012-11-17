@@ -33,6 +33,7 @@ describe User do
 	it { should respond_to(:admin)}
 
 
+
 	it {should be_valid}
 	it {should_not be_admin}
 
@@ -138,5 +139,19 @@ describe User do
 	describe "remember token" do
 		before { @user.save }
 		its(:remember_token) { should_not be_blank }
+	end
+
+	describe "accessible attributes" do
+		let(:user) { FactoryGirl.create(:user)}
+
+		it "should not allow access to user_id" do
+			expect do
+				User.new(name: user.name,
+						email: user.email,
+						password: "foo",
+						password_confirmation: "foo",
+						admin: true)
+			end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
+		end    
 	end
 end
