@@ -3,5 +3,6 @@ class ApplicationController < ActionController::Base
 	# Additional Rspec setting is needed to use ssl
 	# force_ssl
 	include SessionsHelper
+	# include MicropostsHelper
 	#By default, all the helpers are available in the views but not in the controllers.
 end

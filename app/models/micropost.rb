@@ -7,6 +7,7 @@ class Micropost < ActiveRecord::Base
 	validates :content, presence: true, length: { maximum: 140 }
 
 	
+	self.per_page = 10
 
 	default_scope order: 'microposts.created_at DESC'
 end
