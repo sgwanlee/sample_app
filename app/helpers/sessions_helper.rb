@@ -38,7 +38,7 @@ module SessionsHelper
 	end
 
 	def signed_in_user
-		logger.debug "!!!!!!!!"
+		logger.debug "AAAAA"
 		unless signed_in?
 			store_location
 			redirect_to signin_path, notice: "Please sign in."

@@ -1,9 +1,24 @@
 class UsersController < ApplicationController
-	before_filter :signed_in_user, only: [:edit, :update, :index]
+	before_filter :signed_in_user, only: [:edit, :update, :index, :following, :followers]
 	before_filter :correct_user,   only: [:edit, :update]
 	before_filter :admin_user, only: :destroy
 
 	before_filter :user_signed_in, only: [:new, :create]
+
+
+	def following
+		@title = "Following"
+		@user = User.find(params[:id])
+		@users = @user.followed_users.paginate(page: params[:page])
+		render 'show_follow'
+	end
+
+	def followers
+		@title = "Followers"
+		@user = User.find(params[:id])
+		@users = @user.followers.paginate(page: params[:page])
+		render 'show_follow'
+	end
 
 	def destroy
 		@user = User.find(params[:id])
